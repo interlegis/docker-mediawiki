@@ -3,14 +3,14 @@ FROM alpine:3.6
 MAINTAINER Matheus Garcia <garcia.figueiredo@gmail.com>
 
 ENV WIKI_GITHUB=https://github.com/interlegis/mediawiki.git \
-    WIKI_DATA=/var/www/localhost/htdocs/images \
+    WIKI_DATA=/var/wikidata \
     WIKI_REVERSEPROXY=false \
     WIKI_SSLPROXY=false \
     WIKI_VERSION=1.31.0-0
 
 EXPOSE 80
 
-VOLUME ["/var/www/localhost/htdocs/images"]
+VOLUME ["/var/wikidata"]
 
 RUN apk update \
  && apk add --no-cache \
@@ -51,7 +51,11 @@ RUN cd /tmp \
  && cd /tmp \
  && mv /tmp/mediawiki/* /var/www/localhost/htdocs \
  && chown apache:apache -R /var/www/localhost/htdocs \
- && mkdir /run/apache2
+ && mkdir /run/apache2 \
+ && rm -rf /var/www/localhost/htdocs/images \
+ && mkdir /var/wikidata \
+ && chown apache:apache -R /var/wikidata \
+ && ln -s /var/wikidata /var/www/localhost/htdocs/images
 
 RUN ln -sf /proc/self/fd/1 /var/log/apache2/access.log \
  && ln -sf /proc/self/fd/1 /var/log/apache2/error.log
@@ -59,6 +63,7 @@ RUN ln -sf /proc/self/fd/1 /var/log/apache2/access.log \
 COPY LocalSettings.php /var/www/localhost/htdocs/LocalSettings.php
 COPY wiki.png /var/www/localhost/htdocs/resources/assets/wiki.png
 COPY run.sh /opt/apache2/run.sh
+COPY .htaccess /var/wikidata
 
 CMD ["/opt/apache2/run.sh"]
 

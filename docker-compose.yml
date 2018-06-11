@@ -2,7 +2,7 @@ mediawiki:
   #image: mediawiki
   build: .
   volumes:
-   - wikidata:/var/www/localhost/htdocs/images
+   - wikidata:/var/wikidata
   ports:
    - "80:80"
   environment:
