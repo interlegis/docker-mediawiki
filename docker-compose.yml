@@ -1,8 +1,8 @@
-moodle:
+mediawiki:
   #image: mediawiki
   build: .
   volumes:
-   - wikiimages:/var/www/localhost/htdocs/images
+   - wikidata:/var/www/localhost/htdocs/images
   ports:
    - "80:80"
   environment:
