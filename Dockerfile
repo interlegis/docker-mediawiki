@@ -46,7 +46,9 @@ ENV LANG pt_BR.UTF-8
 
 RUN cd /tmp \
  && git clone ${WIKI_GITHUB} --depth=1 --branch ${WIKI_VERSION} \
+ && cd /tmp/mediawiki \
  && git submodule update --init \
+ && cd /tmp \
  && rm -rf /var/www/localhost/htdocs \
  && mv /tmp/moodle /var/www/localhost/htdocs \
  && chown apache:apache -R /var/www/localhost/htdocs \
