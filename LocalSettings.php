@@ -54,9 +54,9 @@ $wgEmailAuthentication = true;
 ## Database settings
 $wgDBtype = "mysql";
 $wgDBserver = getenv('WIKI_DB_HOST');
-$wgDBname = getenv('MOODLE_DB_NAME');
-$wgDBuser = getenv('MOODLE_DB_USER')
-$wgDBpassword = getenv('MOODLE_DB_PASS')
+$wgDBname = getenv('WIKI_DB_NAME');
+$wgDBuser = getenv('WIKI_DB_USER')
+$wgDBpassword = getenv('WIKI_DB_PASS')
 
 # MySQL specific settings
 $wgDBprefix = "";

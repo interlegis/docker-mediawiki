@@ -21,7 +21,7 @@ RUN apk update \
                        php7 \
                        php7-apache2 \
                        php7-iconv \
-                       php7-mysql \
+                       php7-mysqli \
                        php7-session \
                        php7-json \
                        php7-xml \
@@ -56,6 +56,7 @@ RUN ln -sf /proc/self/fd/1 /var/log/apache2/access.log \
  && ln -sf /proc/self/fd/1 /var/log/apache2/error.log
 
 COPY LocalSettings.php /var/www/localhost/htdocs/LocalSettings.php
+COPY wiki.png /var/www/localhost/htdocs/resources/assets/wiki.png
 COPY run.sh /opt/apache2/run.sh
 
 CMD ["/opt/apache2/run.sh"]
