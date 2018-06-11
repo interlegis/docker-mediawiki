@@ -44,7 +44,8 @@ RUN apk update \
 ENV LC_ALL pt_BR.UTF-8
 ENV LANG pt_BR.UTF-8
 
-RUN cd /tmp \
+RUN rm -rf /var/www/localhost/htdocs \
+ && cd /tmp \
  && git clone ${WIKI_GITHUB} --depth=1 --branch ${WIKI_VERSION} \
  && cd /tmp/mediawiki \
  && git submodule update --init \
