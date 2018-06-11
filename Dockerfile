@@ -49,7 +49,7 @@ RUN cd /tmp \
  && cd /tmp/mediawiki \
  && git submodule update --init \
  && cd /tmp \
- && mv /tmp/moodle /var/www/localhost/htdocs \
+ && mv /tmp/mediawiki /var/www/localhost/htdocs \
  && chown apache:apache -R /var/www/localhost/htdocs \
  && mkdir /run/apache2
 
