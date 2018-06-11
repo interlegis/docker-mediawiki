@@ -44,13 +44,12 @@ RUN apk update \
 ENV LC_ALL pt_BR.UTF-8
 ENV LANG pt_BR.UTF-8
 
-RUN rm -rf /var/www/localhost/htdocs \
- && cd /tmp \
+RUN cd /tmp \
  && git clone ${WIKI_GITHUB} --depth=1 --branch ${WIKI_VERSION} \
  && cd /tmp/mediawiki \
  && git submodule update --init \
  && cd /tmp \
- && mv /tmp/mediawiki /var/www/localhost/htdocs \
+ && mv /tmp/mediawiki/* /var/www/localhost/htdocs \
  && chown apache:apache -R /var/www/localhost/htdocs \
  && mkdir /run/apache2
 
