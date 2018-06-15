@@ -39,7 +39,8 @@ RUN apk update \
                        php7-opcache \
                        php7-tokenizer \
                        php7-simplexml \
-                       php7-ctype
+                       php7-ctype \
+                       php7-fileinfo
 
 ENV LC_ALL pt_BR.UTF-8
 ENV LANG pt_BR.UTF-8
