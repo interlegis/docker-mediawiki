@@ -21,7 +21,7 @@ RUN apk update \
                        php7 \
                        php7-apache2 \
                        php7-iconv \
-                       php7-mysqli \
+                       php7-pgsql \
                        php7-session \
                        php7-json \
                        php7-xml \
@@ -46,15 +46,14 @@ ENV LANG pt_BR.UTF-8
 
 RUN cd /tmp \
  && git clone ${WIKI_GITHUB} --depth=1 --branch ${WIKI_VERSION} \
+ && rm -rf /var/www/localhost/htdocs \
  && cd /tmp/mediawiki \
  && git submodule update --init \
  && cd /tmp \
- && mv /tmp/mediawiki/* /var/www/localhost/htdocs \
+ && mv /tmp/mediawiki /var/www/localhost/htdocs \
  && chown apache:apache -R /var/www/localhost/htdocs \
  && mkdir /run/apache2 \
  && rm -rf /var/www/localhost/htdocs/images \
- && mkdir /var/wikidata \
- && chown apache:apache -R /var/wikidata \
  && ln -s /var/wikidata /var/www/localhost/htdocs/images
 
 RUN ln -sf /proc/self/fd/1 /var/log/apache2/access.log \

@@ -7,6 +7,7 @@ mediawiki:
    - "80:80"
   environment:
    - WIKI_URL=http://localhost
+   - WIKI_SITE_NAME=Wiki
    - WIKI_DB_HOST=localhost
    - WIKI_DB_NAME=wikidb
    - WIKI_DB_USER=wikiuser
