@@ -60,7 +60,8 @@ RUN cd /tmp \
 RUN ln -sf /proc/self/fd/1 /var/log/apache2/access.log \
  && ln -sf /proc/self/fd/1 /var/log/apache2/error.log
 
-COPY LocalSettings.php /var/www/localhost/htdocs/LocalSettings.php
+COPY install.sh /usr/local/bin
+COPY LocalSettings.php /tmp
 COPY wiki.png /var/www/localhost/htdocs/resources/assets/wiki.png
 COPY run.sh /opt/apache2/run.sh
 COPY .htaccess /var/wikidata
