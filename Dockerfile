@@ -48,9 +48,9 @@ ENV LANG pt_BR.UTF-8
 RUN cd /tmp \
  && git clone ${WIKI_GITHUB} --depth=1 --branch ${WIKI_VERSION} \
  && rm -rf /var/www/localhost/htdocs \
- && cd /tmp/mediawiki \
+ && cd mediawiki \
  && git submodule update --init \
- && cd /tmp \
+ && cd .. \
  && mv /tmp/mediawiki /var/www/localhost/htdocs \
  && chown apache:apache -R /var/www/localhost/htdocs \
  && mkdir /run/apache2 \
