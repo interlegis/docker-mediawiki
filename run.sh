@@ -13,6 +13,9 @@ if [ ! -f /var/wikidata/dummy ]; then
   chown apache:apache /var/www/localhost/htdocs/LocalSettings.php 
 fi
 
+#Em quaisquer casos, sempre roda comando de update
+/usr/bin/php /var/www/localhost/htdocs/maintenance/update.php --quick
+
 # Atribui proprietário do wikidata 
 chown apache:apache /var/wikidata -R
 

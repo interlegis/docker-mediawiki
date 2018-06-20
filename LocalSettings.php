@@ -52,7 +52,7 @@ $wgEnotifWatchlist = false; # UPO
 $wgEmailAuthentication = true;
 
 ## Database settings
-$wgDBtype = "postgres";
+$wgDBtype = "mysql";
 $wgDBserver = getenv('WIKI_DB_HOST');
 $wgDBname = getenv('WIKI_DB_NAME');
 $wgDBuser = getenv('WIKI_DB_USER');
