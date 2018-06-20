@@ -21,7 +21,7 @@ RUN apk update \
                        php7 \
                        php7-apache2 \
                        php7-iconv \
-                       php7-mysql \
+                       php7-mysqli \
                        php7-session \
                        php7-json \
                        php7-xml \
